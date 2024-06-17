@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Personal Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="post-wrapper">
+                {% for review in reviews %}
+                <article>
+                    <a href="#">
+                        <img src="{{ url_for('static', filename=review['image']) }}" alt="{{ review['title'] }} Poster" class="poster">
+                    </a>
+                    <div class="post-meta">
+                        <span class="frame-title">{{ review['title'] }} ({{ review['year'] }})</span>
+                        <span class="overlay"></span>
+                        <span class="overlay-actions js-film-options -w150" style="display: inline;">
+                            <span class="film-watch-link-target" data-film-id="51781">
+                                <span class="film-watch-link">
+                                    <span class="has-icon icon-16 icon-watch ajax-click-action" data-action="/film/{{ review['title'] }}/mark-as-watched/">
+                                        <span class="replace icon"></span>Seen this film?
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="like-link-target" data-likeable-uid="film:51781">
+                                <span class="like-link">
+                                    <span class="has-icon icon-16 ajax-click-action icon-like" data-action="/s/film:51781/like/" data-recaptcha-action="film_like">
+                                        <span class="icon"></span>Like this film?
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="replace menu-link icon"></span>
+                        </span>
+                    </div>
+                    <p>Posted on {{ review['date'] }}</p>
+                    <p>{{ review['review'] }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Personal Blog</p>
+        </div>
+    </footer>
+</body>
+</html>
