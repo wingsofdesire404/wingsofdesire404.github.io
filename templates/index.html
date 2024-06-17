@@ -23,18 +23,18 @@
     <main>
         <div class="container">
             <div class="post-wrapper">
-                {% for review in reviews %}
+                {% for film in films %}
                 <article>
                     <a href="#">
-                        <img src="{{ url_for('static', filename=review['image']) }}" alt="{{ review['title'] }} Poster" class="poster">
+                        <img src="{{ url_for('static', filename=film['images']) }}" alt="{{ film['title'] }} Poster" class="poster">
                     </a>
                     <div class="post-meta">
-                        <span class="frame-title">{{ review['title'] }} ({{ review['year'] }})</span>
+                        <span class="frame-title">{{ film['title'] }} ({{ film['year'] }})</span>
                         <span class="overlay"></span>
                         <span class="overlay-actions js-film-options -w150" style="display: inline;">
                             <span class="film-watch-link-target" data-film-id="51781">
                                 <span class="film-watch-link">
-                                    <span class="has-icon icon-16 icon-watch ajax-click-action" data-action="/film/{{ review['title'] }}/mark-as-watched/">
+                                    <span class="has-icon icon-16 icon-watch ajax-click-action" data-action="/film/{{ film,['title'] }}/mark-as-watched/">
                                         <span class="replace icon"></span>Seen this film?
                                     </span>
                                 </span>
@@ -49,8 +49,8 @@
                             <span class="replace menu-link icon"></span>
                         </span>
                     </div>
-                    <p>Posted on {{ review['date'] }}</p>
-                    <p>{{ review['review'] }}</p>
+                    <p>Posted on {{ film['date'] }}</p>
+                    <p>{{ film['review'] }}</p>
                 </article>
                 {% endfor %}
             </div>
