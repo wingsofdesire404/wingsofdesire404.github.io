@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ film['title'] }} Review</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{{ film['title'] }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="review">
+                <h2>{{ film['title'] }}</h2>
+                <img src="{{ url_for('static', filename=film['images']) }}" alt="{{ film['title'] }} Poster" class="review_poster">
+                <p>{{ film['review'] }}</p>
+                <!-- Add more film details as needed -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Personal Blog</p>
+        </div>
+    </footer>
+</body>
+</html>

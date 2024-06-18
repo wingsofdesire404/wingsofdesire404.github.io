@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Load the CSV file
 df = pd.read_csv('./static/images/review.csv')
-print(df)
+
 # Route for the homepage
 @app.route('/')
 def index():

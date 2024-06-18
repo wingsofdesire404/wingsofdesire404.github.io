@@ -25,34 +25,16 @@
             <div class="post-wrapper">
                 {% for film in films %}
                 <article>
-                    <a href="#">
+                    <a href="{{ url_for('review', film_id=loop.index0) }}">
                         <img src="{{ url_for('static', filename=film['images']) }}" alt="{{ film['title'] }} Poster" class="poster">
                     </a>
-                    <div class="post-meta">
-                        <span class="frame-title">{{ film['title'] }} ({{ film['year'] }})</span>
-                        <span class="overlay"></span>
-                        <span class="overlay-actions js-film-options -w150" style="display: inline;">
-                            <span class="film-watch-link-target" data-film-id="51781">
-                                <span class="film-watch-link">
-                                    <span class="has-icon icon-16 icon-watch ajax-click-action" data-action="/film/{{ film,['title'] }}/mark-as-watched/">
-                                        <span class="replace icon"></span>Seen this film?
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="like-link-target" data-likeable-uid="film:51781">
-                                <span class="like-link">
-                                    <span class="has-icon icon-16 ajax-click-action icon-like" data-action="/s/film:51781/like/" data-recaptcha-action="film_like">
-                                        <span class="icon"></span>Like this film?
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="replace menu-link icon"></span>
-                        </span>
-                    </div>
-                    <p>Posted on {{ film['date'] }}</p>
-                    <p>{{ film['review'] }}</p>
                 </article>
                 {% endfor %}
+            </div>
+            <div class="diary-section">
+                <h2>My Thoughts and Diary</h2>
+                <p>Here, you can write about your personal thoughts, experiences, and anything else you want to share.</p>
+                <!-- Add more content as needed -->
             </div>
         </div>
     </main>

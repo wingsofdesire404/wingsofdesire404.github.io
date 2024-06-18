@@ -54,49 +54,47 @@ main {
 .post-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 0; /* Remove the gap between articles */
+    justify-content: flex-start; /* Align items to start */
 }
 
-article {
+.post-wrapper article {
+    width: 14.2857%; /* Ensure each article takes up one-third of the container */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster {
+    width: 100%; /* Ensure the poster image fills the article */
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.diary-section {
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: calc(33.333% - 20px);
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-article a {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.poster {
-    width: 100%;
+.review_poster {
+    width: 25%; /* Ensure the poster image fills the article */
     height: auto;
     display: block;
-}
-
-.post-meta {
-    padding: 10px;
-}
-
-.frame-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.overlay,
-.overlay-actions {
-    display: none; /* Update these as needed for your overlay functionality */
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
