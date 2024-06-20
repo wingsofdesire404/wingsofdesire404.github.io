@@ -28,6 +28,10 @@ def review(film_id):
 def images(filename):
     return send_from_directory(os.path.dirname(df['images'][0]), os.path.basename(filename))
 
+@app.route('/yiyi')
+def yiyi():
+    return render_template('yiyi.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
