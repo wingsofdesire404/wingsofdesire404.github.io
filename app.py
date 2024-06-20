@@ -7,8 +7,12 @@ app = Flask(__name__)
 # Load the CSV file
 df = pd.read_csv('./static/images/review.csv')
 
-# Route for the homepage
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+# Route for the homepage
+@app.route('/review')
 def index():
     films = df.to_dict(orient='records')
     return render_template('index.html', films=films)
